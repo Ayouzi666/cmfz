@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyn.dao.UserDao">
+    <select id="getUserByTime" resultType="integer"><![CDATA[
+        select count(*) from user WHERE sex='${sex}' AND DATE_SUB(NOW(),INTERVAL #{i} DAY) < date ]]>
+    </select>
+
+    <select id="getAddress" resultType="com.yyn.entity.MapVO">
+        SELECT address name,count(*) value from `user` GROUP BY address
+    </select>
+</mapper>

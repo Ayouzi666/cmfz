@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyn.dao.ZhangjieDao">
+    <select id="getAll" resultType="com.yyn.entity.Zhangjie">
+        select ze.id,ze.`name`,ze.size,ze.time,ze.path,zi.tatle as belong from zhangjie ze LEFT JOIN zhuanji zi ON ze.belong=zi.id where ze.belong=#{param3} limit #{param1},#{param2}
+    </select>
+
+    <select id="getTotal" resultType="integer">
+        SELECT count(*) from zhangjie where belong=#{0}
+    </select>
+</mapper>
