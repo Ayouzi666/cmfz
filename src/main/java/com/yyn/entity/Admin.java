@@ -10,18 +10,25 @@ package com.yyn.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Transient;
 import tk.mybatis.mapper.annotation.KeySql;
 import tk.mybatis.mapper.code.ORDER;
 
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Admin implements Serializable {
     @Id
-    @KeySql(sql = "select uuid()",order = ORDER.BEFORE)
+    // @KeySql 指定主键策略 1. uuid 2.自增 @KeySql(useGeneratedKeys = true)
+    @KeySql(sql = "select uuid()", order = ORDER.BEFORE)
     private String id;
     private String username;
     private String password;
+    @Transient
+    private List<Role> roles;
+
 }
