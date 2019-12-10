@@ -60,7 +60,8 @@ public class test {
         /*List<Admin> admins = adminDao.selectByRowBounds(new Admin(), new RowBounds(0, 4));
         System.out.println(admins);*/
 //        adminDao.delete(new Admin("5",null,null));
-        adminDao.insertSelective(new Admin(null,"qwe","123"));
+        Admin yyn = adminDao.queryAdminInfo("yyn");
+        System.out.println(yyn);
     }
 
     @Test

@@ -11,4 +11,5 @@ import com.yyn.entity.Admin;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface AdminDao extends Mapper<Admin> {
+    Admin queryAdminInfo(String username);
 }
