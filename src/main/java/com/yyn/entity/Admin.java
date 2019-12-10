@@ -30,5 +30,4 @@ public class Admin implements Serializable {
     private String password;
     @Transient
     private List<Role> roles;
-
 }
